@@ -1,0 +1,196 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{crearPelicula}">Crear Pelicula</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container-fluid mt-3 mb-3">
+    <div class="container bg-white">
+        <div class="row">
+            <div class="col">
+                <span class="font-weight-bold" th:text="#{lang.cambio}">Cambiar idioma</span>:
+                <select id="locales">
+                    <option value="es" th:text="#{lang.espaniol}">Español</option>
+                    <option value="en" th:text="#{lang.ingles}">Inglés</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <form th:action="@{/peliculas/crear}" th:object="${pelicula}" th:method="post">
+        <h1 class="row justify-content-center mb-3" th:text="#{crearPelicula}">Crear Pelicula</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="titulo" th:text="#{titulo}"></label>
+                    <input type="text" class="form-control" id="titulo" th:classappend="${#fields.hasErrors('titulo')?'is-invalid':''}" th:field="*{titulo}" value="Pelicula" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('titulo')}">
+                        <li th:each="err : ${#fields.errors('titulo')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="descripcion" th:text="#{descripcion}">descripcion</label>
+                    <input type="text" class="form-control" id="descripcion" th:classappend="${#fields.hasErrors('descripcion')?'is-invalid':''}" th:field="*{descripcion}" value="Descripción" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('descripcion')}">
+                        <li th:each="err : ${#fields.errors('descripcion')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="fecha_lanzamiento" th:text="#{fecha.lanzamiento}">Fecha lanzamiento</label>
+                    <input type="text" class="form-control" id="fecha_lanzamiento" th:classappend="${#fields.hasErrors('fecha_lanzamiento')?'is-invalid':''}" th:field="*{fecha_lanzamiento}" value="Fecha Lanzamiento" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('fecha_lanzamiento')}">
+                        <li th:each="err : ${#fields.errors('fecha_lanzamiento')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="duracion_alquiler" th:text="#{duracion.alquiler}">duracion alquiler</label>
+                    <input type="text" class="form-control" id="duracion_alquiler" th:classappend="${#fields.hasErrors('duracion_alquiler')?'is-invalid':''}" th:field="*{duracion_alquiler}" value="Duración alquiler" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('duracion_alquiler')}">
+                        <li th:each="err : ${#fields.errors('duracion_alquiler')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="rental_rate" th:text="#{rental_rate}">rental rate</label>
+                    <input type="text" class="form-control" id="rental_rate" th:classappend="${#fields.hasErrors('rental_rate')?'is-invalid':''}" th:field="*{rental_rate}" value="Pelicula" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('rental_rate')}">
+                        <li th:each="err : ${#fields.errors('rental_rate')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="duracion" th:text="#{duracion}">duracion</label>
+                    <input type="text" class="form-control" id="duracion" th:classappend="${#fields.hasErrors('duracion')?'is-invalid':''}" th:field="*{duracion}" value="Pelicula" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('duracion')}">
+                        <li th:each="err : ${#fields.errors('duracion')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="replacement_cost" th:text="#{replacement_cost}">replacement_cost</label>
+                    <input type="text" class="form-control" id="replacement_cost" th:classappend="${#fields.hasErrors('replacement_cost')?'is-invalid':''}" th:field="*{replacement_cost}" value="Pelicula" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('replacement_cost')}">
+                        <li th:each="err : ${#fields.errors('replacement_cost')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="ultima_actualizacion" th:text="#{ultima_actualizacion}">ultima_actualizacion</label>
+                    <input type="text" class="form-control" id="ultima_actualizacion" th:classappend="${#fields.hasErrors('ultima_actualizacion')?'is-invalid':''}" th:field="*{ultima_actualizacion}" value="Pelicula" />
+                    <span class="text-danger " th:if="${#fields.hasErrors('ultima_actualizacion')}">
+                        <li th:each="err : ${#fields.errors('ultima_actualizacion')}" th:text="${err}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="col">-->
+<!--            <span class="font-weight-bold" th:text="#{lang.cambio}">Cambiar idioma</span>:-->
+<!--            <select id="idiomas">-->
+<!--&lt;!&ndash;                (1,'English','2006-02-15 05:02:19'),&ndash;&gt;-->
+<!--&lt;!&ndash;                (2,'Italian','2006-02-15 05:02:19'),&ndash;&gt;-->
+<!--&lt;!&ndash;                (3,'Japanese','2006-02-15 05:02:19'),&ndash;&gt;-->
+<!--&lt;!&ndash;                (4,'Mandarin','2006-02-15 05:02:19'),&ndash;&gt;-->
+<!--&lt;!&ndash;                (5,'French','2006-02-15 05:02:19'),&ndash;&gt;-->
+<!--&lt;!&ndash;                (6,'German','2006-02-15 05:02:19');&ndash;&gt;-->
+<!--                <option value="en" th:text="#{lang.ingles}" th:field="*{idioma.setId_idioma(1)}">Inglés</option>-->
+<!--                <option value="en" th:text="#{lang.ingles}">Italiano</option>-->
+<!--                <option value="en" th:text="#{lang.ingles}">Japonés</option>-->
+<!--                <option value="en" th:text="#{lang.ingles}">Mandarín</option>-->
+<!--                <option value="en" th:text="#{lang.ingles}">Francés</option>-->
+<!--                <option value="en" th:text="#{lang.ingles}">Alemán</option>-->
+
+<!--                <div class="row justify-content-center">-->
+<!--                    <input type="submit" th:value="#{btnCrear}" value="Crear" class="btn btn-success"/>-->
+<!--                </div>-->
+<!--            </select>-->
+<!--        </div>-->
+
+
+        <div class="row justify-content-center">
+            <a href="/peliculas" class="btn btn-danger mr-3" th:text="#{btnCancelar}">Cancelar</a>
+            <input type="submit" th:value="#{btnCrear}" value="Crear" class="btn btn-success"/>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- Script para el cambio de idioma -->
+<script th:inline="javascript">
+    $(function (){
+        //IMPLEMENTANDO UN BOTÓN backToTop
+        let btn = $('#backToTop');
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+        btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, '300');
+        });
+
+        let url = new URL(window.location.href);
+        let valLang = url.searchParams.get('lang')
+        $('#locales option[value='+valLang+']').attr('selected', 'selected');
+
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != ''){
+                let url = new URL(window.location.href);
+                url.searchParams.set('lang', selectedOption);
+                window.location.href= url.href;
+            }
+        });
+
+        /*[# th:if="${editPedidoID}"]*/
+        $('html, body').animate({
+            scrollTop: $('#'+[[${editPedidoID}]]).offset().top-137
+        }, 1000, () => $('#'+[[${editPedidoID}]]).addClass('highlight'));
+        /*[/]*/
+
+    });
+</script>
+</body>
+</html>

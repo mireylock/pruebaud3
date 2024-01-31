@@ -1,0 +1,69 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Peliculas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-3">
+    <!-- Apartado 4 -->
+    <div class="row mt-1 mb-2 font-weight-bold bg-primary text-white">
+        <div class="col-md-2 align-self-center h6" >Conteo películas</div>
+        <div class="col-md-1 align-self-center h6" th:text="${conteoPelis}"></div>
+    </div>
+
+</div>
+
+    <h1 class="row justify-content-center mt-3 mb-3" th:text="Películas"></h1>
+
+    <form th:action="@{/peliculas/crear}" class="row justify-content-center mb-3">
+    <input type="submit" value="Crear" class="btn btn-success">
+    </form>
+
+
+    <div class="container bg-light">
+        <div class="row mt-1 mb-2 font-weight-bold bg-dark text-white">
+            <div class="col-md-1 align-self-center h6" >Id</div>
+            <div class="col-md-2 align-self-center h6" >Título</div>
+            <div class="col-md-1 align-self-center h6" >Fecha lanzamiento</div>
+            <div class="col-md-1 align-self-center h6" >Idioma</div>
+            <div class="col-md-1 align-self-center h6" >Duracion alquiler</div>
+            <div class="col-md-1 align-self-center h6" >Rental rate</div>
+            <div class="col-md-1 align-self-center h6" >Duración</div>
+        </div>
+
+        <div class="row mb-2" th:each="pelicula : ${listaPeliculas}">
+            <div th:text="${pelicula.id_pelicula}" class="col-md-1 align-self-center">Id</div>
+            <div th:text="${pelicula.titulo}" class="col-md-2 align-self-center">Titulo</div>
+            <div th:text="${pelicula.fecha_lanzamiento}" class="col-md-1 align-self-center">Fecha lanzamiento</div>
+            <div th:text="${pelicula.idioma.getNombre()}" class="col-md-1 align-self-center">Idioma</div>
+            <div th:text="${pelicula.duracion_alquiler}" class="col-md-1 align-self-center">Duracion alquiler</div>
+            <div th:text="${pelicula.rental_rate}" class="col-md-1 align-self-center">Rental rate</div>
+            <div th:text="${pelicula.duracion}" class="col-md-1 align-self-center">Duracion</div>
+
+
+            <div class="col align-self-center text-center">
+                <form class="d-inline">
+                    <input type="submit" value="Ver Detalle" class="btn btn-primary"/>
+                </form>
+
+                <form class="d-inline">
+                    <input type="submit" value="Editar" class="btn btn-info"/>
+                </form>
+
+                <form class="d-inline" >
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</script>
+
+</body>
+</html>
